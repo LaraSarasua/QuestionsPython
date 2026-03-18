@@ -1,6 +1,6 @@
 import random
 
-words = [
+prog = [
     "python",
     "programa",
     "variable",
@@ -11,8 +11,28 @@ words = [
     "lista",
 ]
 
+bandas = [
+    "metallica",
+    "deftones",
+    "paramore",
+    "tool",
+    "superheaven",
+]
 
-word = random.choice(words)
+paises = [
+    "argentina",
+    "peru",
+    "mexico",
+    "brasil",
+    "chile",
+]
+
+categorias = {
+    "programacion" : prog,
+    "bandas de musica" : bandas,
+    "paises" : paises
+}
+
 guessed = []
 attempts = 6
 score = 0
@@ -20,6 +40,15 @@ score = 0
 print("¡Bienvenido al Ahorcado!")
 print()
 
+print("Categorias disponibles: ")
+for clave in categorias:
+    print("-", clave)
+
+print()
+
+categoria_elegida = input("Elegi la categoria con la que queres jugar: ")
+
+word = random.choice(categorias[categoria_elegida])
 
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
