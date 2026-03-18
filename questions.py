@@ -41,7 +41,12 @@ while attempts > 0:
     print(f"Letras usadas: {', '.join(guessed)}")
     
     letter = input("Ingresá una letra: ")
-    
+
+    if len(letter) != 1 or not letter.isalpha(): #la funcion isalpha en python verifica q lo que este dentro de la variable sea si o si una letra del abecedario. 
+        print("Entrada incorrecta. Solamente se aceptan letras del abecedario")
+        print()
+        continue #para que vuelva a "entrar" en el while para que pregunte otra letra ya que la ingresada no fue valida.
+
     if letter in guessed:
         print("Ya usaste esa letra.")
     elif letter in word:
