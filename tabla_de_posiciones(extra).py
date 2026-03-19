@@ -28,6 +28,10 @@ while True:
             print("Eligió la opcion 2 a continuacion ingrese la informacion requerida.")
             local = input("Equipo local: ")
             visitante = input("Equipo visitante: ")
+            if local == visitante:
+                print("Esta ingresando los mismos equipos tanto para local como para visitante. Intente otra vez.")
+                print()
+                continue
             marcador = input("Ingrese marcador(ej : 4-2): ")
 
             if local not in equipos or visitante not in equipos:
@@ -51,8 +55,11 @@ while True:
                 equipos[local] += 1
                 equipos[visitante] += 1
 
-        #case "3":
-            # ordenados = #preguntar no se como hacer
+        case "3":
+            ordenados = sorted(equipos.items(), key= lambda x: x[1], reverse=True)
+
+            for equipo, puntos in ordenados:
+                print(equipo, "-", puntos, "pts")
 
         case "4":
             nombre = input("Que equipo desea eliminar? ")
